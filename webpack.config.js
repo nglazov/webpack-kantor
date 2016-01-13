@@ -7,14 +7,12 @@ const webpack = require('webpack');
 module.exports = {
 	context: __dirname + '/src',
 
- 	entry: {
- 		home: './home',
- 		about: './about'
- 	},
+ 	entry: './app',
 
     output: {
     	path: __dirname + "/dist",
         filename: "[name].js",
+        publicpath: '/',
         library: "[name]"
     },
 
@@ -32,7 +30,8 @@ module.exports = {
     		NODE_ENV: JSON.stringify(NODE_ENV),
     	}),
     	new webpack.optimize.CommonsChunkPlugin({
-    		name: "common"
+    		name: "common",
+    		minChunks: 2
     	})
     ],
 
