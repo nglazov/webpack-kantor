@@ -5,12 +5,17 @@ const webpack = require('webpack');
 
 
 module.exports = {
- 	entry: './home',
+	context: __dirname + '/src',
+
+ 	entry: {
+ 		home: './home',
+ 		about: './about'
+ 	},
+
     output: {
-        // Make sure to use [name] or [id] in output.filename
-        //  when using multiple entry points
-        filename: "bild.js",
-        library: "home"
+    	path: __dirname + "/dist",
+        filename: "[name].js",
+        library: "[name]"
     },
 
 	watch: NODE_ENV == 'development',
